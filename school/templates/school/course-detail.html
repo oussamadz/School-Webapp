@@ -1,0 +1,100 @@
+{%extends 'school/base.html'%}
+{% load static %}
+{% block content %}
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Course Details</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<!--//END ABOUT IMAGE -->
+<!--============================= ADMISSION DETAILS COURCES =============================-->
+<section class="admission_cources">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-12">
+                <h2>{{course.name}}</h2>
+                <p class="mb-4">Information here is automatically updated. So if you are already attending this course please stay tuned for any changes.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <img src="{% static 'school/images/admission-detail/admission-detail_img.jpg' %}" class="img-fluid" alt="#">
+            </div>
+        </div>
+        <div class="row justify-content-md-center">
+            <div class="col-lg-6">
+                <div class="admission_discription">
+                    <h4>{{course.name}}</h4>
+                    <div class="star-rating">
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                    </div>
+                    <!-- // end .star-rating -->
+                    <p> {{course.desc}}. </p>
+                </div>
+                <div class="admission-pdf">
+                    <i class="fa fa-file-pdf-o fa-3x" aria-hidden="true"></i>
+                    <p>course details PDF
+                        <br>
+                        <a href="#">DOWNLOAD</a>
+                    </p>
+                    <a href="{% url 'admission' %}" class="btn btn-warning btn-pdf_join">Join this course</a>
+                </div>
+                <div class="admission_testimonial">
+                    <h4>Students Testimonials</h4>
+                    <div class="admission-testi_slider">
+         
+           
+                              <div class="admission-testi_wrap">
+                                <div class="admissiontesti-img_block">
+                                    <img src="{% static 'school/images/admission-detail/admission_testi-img.jpg' %}" alt="#">
+                                </div>
+                                <div class="admissiontesti-text_block">
+                                    <p>Electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing.</p>
+                                    <h6><strong>Carolyn Ford</strong><br>
+                                        <span>Biology Stusent</span></h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <ul class="admission_rating">
+                            <li>Level<span>:</span></li>
+                            <li class="admission_star">{{course.niveau}}</li>
+                            <li class="admission_star-second">Starts<span>:</span></li>
+                            <li class="admission_star">{{course.cours_start}}</li>
+                            <li class="admission_star-second">Timing<span>:</span></li>
+                            <li class="admission_star">{{course.wday1}} {{course.time}}</li>
+                            {%if course.wday2 != 'N/A'%}
+				<li class="admission_star-second">Timing 2<span>:</span></li>
+                            <li class="admission_star">{{course.wday2}} {{course.time2}}</li>
+                            {%endif%}
+                            <li>Fees<span>:</span></li>
+                            <li class="admission_star">{{course.price}} DZD</li>
+                            <li>Seats avilable<span>:</span></li>
+                            <li class="admission_star">25</li>
+                        </ul>
+                        <div class="admission_insruction">
+                            <h4>Instructors</h4>
+                            <a href="{% url 'blogTeacherDetails' prof.id %}">
+                            <img src="{{prof.image.url}}" class="img-fluid" alt="#">
+                            <p>{{prof.first_name}} {{ prof.last_name }}<br></p>
+                            </div>
+                            <div class="admission_share-icon">
+                                <h4>Share Course</h4>
+                                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+{%endblock%}

@@ -1,0 +1,51 @@
+{%extends 'adminpanel/base.html'%}
+{% load static %}
+{%block content%}
+<div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-table mr-1"></i>
+                                liste de tous les événements  <a href="{% url 'create-event' %}" class="btn btn-outline-success p-0 px-2">Nouvel évènement </a>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-sm" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr>
+						<th>ID</th>
+                                                <th>Titre</th>
+                                                <th>Text</th>
+                                                <th>Date</th>
+                                                <th>Image</th>
+                                                <th>edits</th>
+                                            </tr>
+                                        </thead>
+                                        <tfoot>
+                                            <tr>
+                        <th>ID</th>
+                                                <th>Titre</th>
+                                                <th>Text</th>
+                                                <th>Date</th>
+                                                <th>Image</th>
+                                                <th>edits</th>
+                                            </tr>
+                                        </tfoot>
+                                        <tbody>
+					{% for  ev in events %}
+                                        <tr role="row" class="odd">
+						<td>{{ev.id}}</td>
+						<td><a href="{% url 'event-detail' ev.id %}" class="tb-names">{{ev.title}}</a></td>
+                                                <td>{{ev.content|truncatechars:25}}</td>
+                                                <td>0{{ev.date|date:"d-m-Y"}}</td>
+                                                <td><img src="{{ev.photo.url}}" width="150" height="100"></td>
+						{% if user.is_authenticated %}
+                        <td><a href="{% url 'event-delete' ev.id %}" class="max-auto btn btn-outline-danger p-0 px-2">Supp</a>
+                            <a href="{% url 'event-update' ev.id %}" class="max-auto btn btn-outline-info p-0 px-2">Edit</a>
+						{% endif %}
+                                            </tr>
+					{%endfor%}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+{%endblock%}

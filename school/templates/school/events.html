@@ -1,0 +1,120 @@
+{%extends 'school/base.html'%}
+{%load static%}
+{% block content %}
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Events</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<!--//END ABOUT IMAGE -->
+<!--============================= EVENTS =============================-->
+<section class="events">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h2 class="event-title">Events</h2>
+            </div>
+            <div class="col-md-8">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="nav-item nav-tab1">
+                        <a class="nav-link tab-list active" data-toggle="tab" href="#upcoming-events" role="tab">Upcoming events </a>
+                    </li>
+                    <li class="nav-item nav-special-br">
+                        <a class="nav-link tab-list" data-toggle="tab" href="#completed-events" role="tab">Completed events </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div class="tab-pane active" id="upcoming-events" role="tabpanel">
+               {% for ev in new_ev %}
+  <div class="col-md-12">
+    <div class="row">
+        <div class="col-md-2">
+            <div class="event-date">
+                <h4>{{ev.date|date:"j"}}</h4> <span>{{ev.date|date:"M Y"}}</span>
+            </div>
+            <span class="event-time">{{ev.date|date:"H:i"}}</span>
+        </div>
+        <div class="col-md-10">
+            <div class="event-heading">
+                <h3>{{ev.title}}</h3>
+                <p>{{ev.content}}</p>
+            </div>
+            <div id="collapse6" class="panel-collapse collapse in">
+                <div class="panel-body">
+                    <div class="event-hilights">
+                        <h5>Event Highlights Photos</h5>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img src="{{ev.photo.url}}" class="img-fluid" alt="event-img">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                  <a data-toggle="collapse" class="event-toggle" data-parent="#accordion" href="#collapse6">Show Details</a>
+              </h4>
+          </div>
+      </div>
+  </div>
+                <hr class="event-underline">
+</div>
+          {% endfor %}
+
+</div>
+<div class="tab-pane" id="completed-events" role="tabpanel">
+
+
+
+  {% for ev in old_ev %}
+  <div class="col-md-12">
+    <div class="row">
+        <div class="col-md-2">
+            <div class="event-date">
+                <h4>{{ev.date|date:"j"}}</h4> <span>{{ev.date|date:"M Y"}}</span>
+            </div>
+            <span class="event-time">{{ev.date|date:"H:i"}}</span>
+        </div>
+        <div class="col-md-10">
+            <div class="event-heading">
+                <h3>{{ev.title}}</h3>
+                <p>{{ev.content}}</p>
+            </div>
+            <div id="collapse6" class="panel-collapse collapse in">
+                <div class="panel-body">
+                    <div class="event-hilights">
+                        <h5>Event Highlights Photos</h5>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img src="{{ev.photo.url}}" class="img-fluid" alt="event-img">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                  <a data-toggle="collapse" class="event-toggle" data-parent="#accordion" href="#collapse6">Show Details</a>
+              </h4>
+          </div>
+      </div>
+  </div>
+                <hr class="event-underline">
+</div>
+{% endfor %}
+</div>
+</div>
+</div>
+</div>
+</section>
+<!--//END EVENTS -->
+{% endblock %}

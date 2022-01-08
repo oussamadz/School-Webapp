@@ -1,0 +1,102 @@
+{% extends 'adminpanel/base.html' %}
+{% block content %}
+
+<table class="table w-auto table-sm mb-0">
+	<tr><td><strong>Cours :</strong> {{course.name}} - {{course.niveau}}</td><td> <strong>temps :</strong> [{{course.wday1}} {{course.time|date:"H:i"}}] {%if course.wday2 != 'N/A'%}| [{{course.wday2}} {{course.time2|date:"H:i"}}]{%endif%} </td><td><strong>Cours a commencé à :</strong> {{course.cours_start|date:"d-m-Y"}}</td></tr>
+<tr><td><strong>salle :</strong> {{course.sal}}</td><td> <strong>Professeur :</strong> {{course.prof}}  </td></tr>
+</table>
+<div class ="row p-0 m-0 w-50">
+<div class="col-sm p-0 m-0">
+<h3> List des Etudients </h3>
+</div>
+<div class="col-sm p-0 m-0">
+<form action="{% url 'reset-cours-start' pk=course.id%}" method="POST">
+	{%csrf_token%}
+	<button id="reset-cours-start-button" class="btn btn-outline-danger p-0 px-2">Reset Cours</button>
+</form>
+</div>
+</div>
+<table class="table table-bordered table-sm" id="dataTable">
+  <thead>
+    <tr>
+	    <th>ID</th>
+      <th>Nom et Prenom</th>
+      <th>DDI</th>
+	  <th>Telephone</th>
+	  <th>Expiration</th>
+	  <th>Duree</th>
+      <th>Paiment</th>
+    </tr>
+  </thead>
+  <tbody>
+  {%for stdn in student %}
+  	{% if course.id == stdn.cours_in.id%}
+		{% if stdn.period <= 3 %}
+  			<tr class="text-danger">
+				<td>{{stdn.id}}</td>
+				<th scope = "row"><a href="{% url 'detail-student' stdn.id %}" class="tb-names"> {{stdn.first_name}} {{stdn.last_name}} </a></th>
+  				<td> {{stdn.sub_date|date:"d-m-Y"}} </td>
+				<td> 0{{stdn.telephone}} </td>
+				<td> {{stdn.cours_start|date:"d-m-Y"}} </td>
+  				<td> {{stdn.period}} </td>
+				<td> <div class="row p-0 m-0">
+					<div class="col-sm p-0 m-0">
+					<form action="{% url 'reset-paiment' pk=stdn.id %}" method="POST">
+     					{%csrf_token%}
+					<button id="reset-button" class="btn btn-outline-danger p-0 px-2">Paye</button>
+					 </form>
+					 </div>
+					 <div class="col-sm p-0 m-0">
+				     	<form action="{% url 'set-presence' pk=stdn.id%}" method="POST">
+					     {%csrf_token%}
+					     <button id="presence-button" class="btn btn-outline-info p-0 px-2">Present</button>
+				     	</form>
+					</div>
+					</div>
+				</td>
+
+  			</tr>
+		{%else%}
+			<tr>
+				<td>{{stdn.id}}</td>
+				<th scope = "row"><a href="{% url 'detail-student' stdn.id %}" class="tb-names"> {{stdn.first_name}} {{stdn.last_name}} </a></th>
+		        <td> {{stdn.sub_date|date:'d-m-Y'}} </td>
+				<td> 0{{stdn.telephone}} </td>
+				<td> {{stdn.cours_start|date:'d-m-Y'}} </td>
+		        <td> {{stdn.period}} </td>
+				<td>
+					<div class="row p-0 m-0">
+				        <div class="col-sm p-0 m-0">
+				        <form action="{% url 'reset-paiment' pk=stdn.id %}" method="POST">
+				        {%csrf_token%}
+			   		<button id="reset-button" class="btn btn-outline-danger p-0 px-2">Paye</button>
+	         			</form>
+    					</div>
+    					<div class="col-sm p-0 m-0">
+	   				<form action="{% url 'set-presence' pk=stdn.id%}" method="POST">
+	               			{%csrf_token%}
+	            			<button id="presence-button" class="btn btn-outline-info p-0 px-2">Present</button>
+        				</form>
+   					</div>
+   					</div>
+
+				</td>
+			</tr>
+
+		{%endif%}
+	{%endif%}
+  {%endfor%}
+  </tbody>
+</table>
+
+<div class="container">
+    <div class="row h-3 m-2">
+        <div class="Col-sm rounded p-2">
+		<h3 class="p-0 m-0">Paiement:</h3>
+        </div>
+        <div class="badge bg-success">
+		<h3 class=" mt-2">{{fuller}} DZD</h3>
+        </div>
+
+
+{% endblock %}

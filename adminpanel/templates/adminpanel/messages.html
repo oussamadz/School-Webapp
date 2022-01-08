@@ -1,0 +1,47 @@
+{%extends 'adminpanel/base.html'%}
+{% load static %}
+{%block content%}
+<div class="card mb-4">
+
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-sm" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr>
+						<th>ID</th>
+                                                <th>Auteur</th>
+                                                <th>Email</th>
+                                                <th>Date</th>
+                                                <th>Message</th>
+                                                <th>edits</th>
+                                            </tr>
+                                        </thead>
+                                        <tfoot>
+                                            <tr>
+						<th>ID</th>
+                                                <th>Auteur</th>
+                                                <th>Email</th>
+                                                <th>Date</th>
+                                                <th>Message</th>
+                                                <th>edits</th>
+                                            </tr>
+                                        </tfoot>
+                                        <tbody>
+					{% for  msg in cmessages %}
+                                        <tr role="row" class="odd">
+						<td>{{msg.id}}</td>
+						<td><a href="{% url 'message-detail' msg.id%}" class="tb-names">{{msg.writer}}</a></td>
+                                                <td>{{msg.email}}</td>
+                                                <td>0{{msg.date|date:"d-m-Y"}}</td>
+                                                <td>{{msg.content|truncatechars:25}}...</td>
+						{% if user.is_authenticated %}
+                        <td><a href="{% url 'message-delete' msg.id %}" class="max-auto btn btn-outline-danger p-0 px-2">Supp</a>
+						{% endif %}
+                                            </tr>
+					{%endfor%}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+{%endblock%}

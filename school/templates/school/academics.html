@@ -1,0 +1,96 @@
+{% extends 'school/base.html' %}
+{% load static %}
+{%block content%}
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Academics</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<!--//END ABOUT IMAGE -->
+<!--============================= ADMISSION COURCES =============================-->
+<section class="admission_cources">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-12">
+                <h2>Our Courses</h2>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled</p>
+            </div>
+        </div>
+        <div class="row justify-content-center" style="justify-content: center">
+            <div class="col-md-12 justify-self-center">
+                <div class="course_filter">
+                        <div class="row">
+                            <div class="col-md-6 col-lg-3">
+                                <select id="levelsBox" class="form-control custom-select" onchange="filterResult()">
+                                    <option selected>Select Niveau</option>
+                                {% for lvl in levels %}
+                                    <option value="{{lvl.0}}">{{lvl.0}}</option>
+                                {% endfor %}
+                                </select>
+                            </div>
+
+                        </div> 	
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div id="itemsBox" class="row">
+        
+        {% for crs in Courses%}
+            <div class="col-md-6">
+                                        <a href="course-detail.html" class="course_box">
+                                            <div class="couse-desc-wrap">
+                                                <h4>{{crs.name}}</h4>
+                                                <!-- // end .star-rating -->
+                                                <strong id="coursLevel">{{crs.niveau}}</strong>.
+                                                <p>{{crs.desc}}</p>
+                                            </div>
+                                            <!-- // end .couse-desc-wrap -->
+                                            <div class="course_duration">
+                                                <ul>
+                                                    <li>
+                                                        <p>Prof</p><span>{{crs.prof}}</span></li>
+                                                        <li>
+                                                            <p>Fee</p><span>{{crs.price}} DZD</span></li>
+                                                            <li>
+                                                                <p>Timing</p><span>{{crs.wday1}} {{crs.time|date:"H:i"}}{%if crs.wday2 != "N/A"%} et {{crs.wday2}} {{crs.time2|date:"H:i"}} {%endif%}</span></li>
+                                                            </ul>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                   
+                   {%endfor%}
+                   
+                   
+                   <script>
+               var items, rw, levelFilter;
+
+		function filterResult() {
+		box = document.getElementById('levelsBox');
+		levelFilter = box.value;
+		rw = document.getElementById('itemsBox');
+		items = rw.getElementsByTagName('a');
+		for (i=0; i<items.length; i++) {
+			crsNiv = items[i].getElementsByTagName("strong");
+			if (crsNiv[0].textContent === levelFilter) {
+				items[i].style.display = "";
+			}
+			else if (levelFilter==="Select Niveau"){
+				items[i].style.display = "";
+			}
+			else {
+				items[i].style.display = "none";
+			}
+		
+		}
+	
+		}
+                   </script>
+                   
+                   
+                   </div>
+                   </section>
+{% endblock %}

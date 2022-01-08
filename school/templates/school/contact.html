@@ -1,0 +1,85 @@
+{% extends 'school/base.html' %}
+{% load crispy_forms_tags %}
+{%load static%}
+{%block content%}
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Contact Us</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<!--//END ABOUT IMAGE -->
+<section class="contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="contact-title">
+                    <h2>Contact Details</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="contact-form">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-6 contact-option">
+                            <div class="contact-option_rsp">
+                                <h3>Leave a message</h3>
+                <form method='POST' enctype="multipart/form-data">
+        {%csrf_token%}
+        <fieldset class="form-group">
+            
+            {{ form|crispy }}
+        </fieldset>
+        <div class="form-group">
+            <button class="btn btn-default btn-submit" type="submit">Envoyer</button>
+        </div>
+        </form>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6">
+                            <div class="contact-address">
+                                <h3>Location</h3>
+                                <div class="contact-details">
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                    <h6>Address</h6>
+                                    <p> Unisco university
+                                        <br> Albany, NY
+                                        <br> USA. 11001</p>
+                                    </div>
+                                    <br>
+                                    <div class="contact-details">
+                                        <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                                        <h6>Email</h6>
+                                        <p>info@unisco.edu
+                                            <br> admin@unisco.edu
+                                        </p>
+                                    </div>
+                                    <br>
+                                    <div class="contact-details">
+                                        <i class="fa fa-phone" aria-hidden="true"></i>
+                                        <h6>phone</h6>
+                                        <p>+91 555 668 986</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="contact-center">OR</p>
+                </div>
+            </div>
+        </div>
+        <!-- Google map will appear here! Edit the Latitude, Longitude and Zoom Level below using data-attr-*  -->
+        <div id="map" data-lat="40.674" data-lon="-73.945" data-zoom="12"></div>
+    </section>
+    <!--//END  ABOUT IMAGE -->
+    <!--============================= Instagram Feed =============================-->
+    <div id="instafeed"></div>
+    <!--//END Instagram feed JS -->
+    <!--============================= FOOTER =============================-->
+{%endblock%}

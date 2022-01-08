@@ -1,0 +1,60 @@
+{% extends 'adminpanel/base.html'%}
+{% block content %}
+
+
+
+<div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-table mr-1"></i>
+                                Inscriptions En Ligne
+                         </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-sm" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr>
+						<th>ID</th>
+                                                <th>Name</th>
+                                                <th>DDN</th>
+                                                <th>Niveau</th>
+                                                <th>Telephone</th>
+                                                <th>DDI</th>
+                                                <th>Cours</th>
+                                                <th>edits</th>
+                                            </tr>
+                                        </thead>
+                                        <tfoot>
+                                            <tr>
+						<th>ID</th>
+                                                <th>Name</th>
+                                                <th>DDN</th>
+                                                <th>Niveau</th>
+                                                <th>Telephone</th>
+                                                <th>DDI</th>
+                                                <th>Cours</th>
+                                                <th>edits</th>
+                                            </tr>
+                                        </tfoot>
+                                        <tbody>
+					{% for  sub in subs %}
+                                        <tr role="row" class="odd">
+						                        <td>{{sub.id}}</td>
+						                        <td>{{sub.first_name}} {{sub.last_name}}</td>
+                                                <td>{{sub.birthdate|date:"j-M-Y"}}</td>
+                                                <td>{{sub.niveau}}</td>
+                                                <td>0{{sub.telephone}}</td>
+                                                <td>{{sub.sub_date|date:"j-M-Y"}}</td>
+                                                <td> {{sub.cours_in}} </td>
+						{% if user.is_authenticated %}
+                        <td><a href="{% url 'delete-inscriptions' sub.id %}" class="max-auto btn btn-outline-danger p-0 px-2">Supp</a>
+                            <a href="{% url 'validate-student' sub.id %}" class="max-auto btn btn-outline-success p-0 px-2">Valider</a></td>
+						{% endif %}
+                                            </tr>
+					{%endfor%}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+{% endblock %}

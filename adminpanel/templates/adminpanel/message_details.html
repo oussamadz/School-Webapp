@@ -1,0 +1,26 @@
+{% extends 'adminpanel/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="w-50 m-5">
+<table class="table table-dark">
+<tbody>
+	<tr>
+		<th scope="row" class="w-15">Auteur:</th>
+		<td>{{msg.writer}}</td>
+	</tr>
+	<tr>
+		<th scope="row" class="w-15"> Email:</th>
+		<td> {{msg.email}} </td>
+	</tr>
+		<th scope="row" class="w-15">Message</th>
+		<td>{{msg.content}}     <br><strong>{{msg.date|date:"H:i   j/m/Y"}}</strong></td>
+	<tr>
+	</tr>
+</tbody>
+</table>
+
+<a class="btn btn-outline-danger" href="{% url 'message-delete' msg.id %}">Supprimer</a>
+</div>
+
+{% endblock %}

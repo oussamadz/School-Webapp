@@ -1,0 +1,64 @@
+{% extends 'school/base.html'%}
+{% load static %}
+{% load crispy_forms_tags %}
+{%block content%}
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Admissions</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//END ABOUT IMAGE -->
+    <div class="container">
+        <!--============================= ADMISSION FORM RULES =============================-->
+        <section class="admission-form_rules">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-7 admission-form_mr">
+                        <h2>Admission Rules</h2>
+                        <p>After succesfully subscribing on the website, please head to the school office to validate your subscription bringing the documents mentioned on the right </p>
+                    </div>
+                    <div class="col-md-5 admission-form_mr">
+                        <ul class="admission-form_listed">
+                            <li>Birth certificate</li>
+                            <li>2 Identity Photos.</li>
+                            <li>Subscription fees.</li>
+                            <li>First month cours fees</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--//END ADMISSION FORM RULES -->
+        <hr />
+        <!-- ================ ADMISSION FORM BADGE ================-->
+        <section class="admission_form">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 my-5">
+                        <img src="{% static 'school/images/badge-icon.png'%}" class="img-fluid" alt="#">
+                        <h2>Admission Form</h2>
+                    </div>
+                </div>
+                
+                
+                <form method='POST' enctype="multipart/form-data">
+		{%csrf_token%}
+		<fieldset class="form-group">
+			<legend class="border-bottom mb-4">Inscription</legend>
+			{{ form|crispy }}
+		</fieldset>
+		<div class="form-group">
+			<button class="btn btn-warning btn-3 bnt-border_3 w-25" type="submit">Inscrire</button>
+		</div>
+		</form>
+                
+                
+                
+            </div>
+        </section>
+        <!--//END ADMISSION FORM BADGE -->
+    </div>
+    <!-- // end .container -->
+    {%endblock%}

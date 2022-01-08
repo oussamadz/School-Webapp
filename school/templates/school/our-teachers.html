@@ -1,0 +1,43 @@
+{% extends 'school/base.html' %}
+{% load static %}
+{% block content %}
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Our Teachers</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<!--//END ABOUT IMAGE -->
+
+<!--============================= Our teachers =============================-->
+
+
+    <!-- Style 2 -->
+    <section class="our-teachers">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="mb-5">Teaching Staff</h2>
+                </div>
+            </div>
+            <div class="row">
+                {% for teacher in teachers %}
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="admission_insruction">
+                        <a href="{% url 'blogTeacherDetails' teacher.id %}">
+                        <img src="{{teacher.image.url}}" class="img-fluid" alt="#">
+                        <p class="text-center mt-3"><span>{{ teacher.first_name }}  {{ teacher.last_name }}</span>
+                            <br>
+                            {{ teacher.cours_in.name }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+                            </div>
+                            <!-- End row -->
+                        </div>
+                    </section>
+                    <!--//End Style 2 -->
+                }
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'adminpanel/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="w-50 m-5">
+<table class="table table-dark">
+<tbody>
+	<tr>
+		<th scope="row" class="w-15">Titre:</th>
+		<td>{{ev.title}}</td>
+	</tr>
+	<tr>
+		<th scope="row" class="w-15"> Date:</th>
+		<td> {{ev.date|date:"j-m-Y    H:i"}} </td>
+	</tr>
+		<th scope="row" class="w-15">Message</th>
+		<td>{{ev.content}}     <br><img src="{{ev.photo.url}}"></td>
+	<tr>
+	</tr>
+</tbody>
+</table>
+
+<a class="btn btn-outline-danger" href="#">Supprimer</a>
+<a class="btn btn-outline-info" href="#">Edit</a>
+
+</div>
+
+{% endblock %}

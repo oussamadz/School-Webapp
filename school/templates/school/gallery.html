@@ -1,0 +1,43 @@
+{% extends 'school/base.html' %}
+{% load static %}
+{% block content %}
+
+      <div class="row">
+        <div class="col-md-12">
+          <h1>Gallery</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--//END ABOUT IMAGE -->
+  <!--============================= Gallery =============================-->
+  <div class="gallery-wrap">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h3 class="gallery-style">School Gallery</h3>
+        </div>
+      </div>
+      <div class="row">
+        {% for img in gallery %}
+        <div class="col-md-4">
+          <a href="{{img.image.url}}" class="grid image-link">
+            <figure class="effect-bubba gallery-img-wrap">
+              <img src="{{img.image.url}}" class="img-fluid" alt="#">
+              <figcaption>
+               <p><i class="fa fa-search-plus fa-2x" aria-hidden="true"></i></p>
+             </figcaption>     
+           </figure>
+         </a>
+       </div>
+       {% endfor %}
+ </div>
+
+<br>
+<br>
+
+</div>
+</div>
+<!--//End Gallery -->
+
+{% endblock %}

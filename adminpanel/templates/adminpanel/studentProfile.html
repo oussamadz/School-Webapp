@@ -1,0 +1,181 @@
+{%extends 'adminpanel/base.html' %}
+{% block content %}
+
+<div class="card shadow-lg border-0 rounded-lg mt-2">
+    <div class="card-header"><h3 class="text-center font-weight-light my-4">{{student.first_name}} {{student.last_name}}    <a class="btn btn-outline-danger" href="{% url 'delete-student' student.id %}">Supprimer</a>
+        <a class="btn btn-outline-info" href="{% url 'update-student' student.id %}">Edit</a></h3></div>
+
+    <div class="card-body card-style">
+<div class="container bootstrap snippets bootdey">
+<div class="panel-body inf-content">
+    <div class="row">
+        <div class="col-md-4">
+            <img alt="" style="width:600px;" title="" class="img-circle img-thumbnail isTooltip" src="/profiles_pics/{{student.image}}" data-original-title="Usuario"> 
+            <ul title="Ratings" class="list-inline ratings text-center">
+                <li><a href="#"><span class="glyphicon glyphicon-star"></span></a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-star"></span></a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-star"></span></a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-star"></span></a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-star"></span></a></li>
+            </ul>
+        </div>
+        <div class="col-md-6">
+            <strong>Information</strong><br>
+            <div class="table-responsive">
+            <table class="table table-user-information table-sm">
+                <tbody>
+                    <tr>        
+                        <td>
+                            <strong class="info-title">
+                                <span class="glyphicon glyphicon-asterisk text-primary"></span>
+				Identification 
+                            </strong>
+                        </td>
+                        <td class="text-primary">
+                            {{student.id}}
+                        </td>
+                    </tr>
+                    <tr>    
+                        <td>
+                            <strong class="info-title">
+                                <span class="glyphicon glyphicon-user  text-primary"></span>    
+                                Prenom                                                
+                            </strong>
+                        </td>
+                        <td class="text-primary">
+                            {{student.last_name}}
+                        </td>
+                    </tr>
+                    <tr>        
+                        <td>
+                            <strong class="info-title">
+                                <span class="glyphicon glyphicon-cloud text-primary"></span>  
+                                Nom                                                
+                            </strong>
+                        </td>
+                        <td class="text-primary">
+                            {{student.first_name}}
+                        </td>
+                    </tr>
+
+                    <tr>        
+                        <td>
+                            <strong class="info-title">
+                                <span class="glyphicon glyphicon-eye-open text-primary"></span> 
+                                Date de naissance                                          
+                            </strong>
+                        </td>
+                        <td class="text-primary">
+				{{student.birthdate|date:"d-m-Y"}}
+                        </td>
+                    </tr>
+
+                    <tr>        
+                        <td>
+                            <strong class="info-title">
+                                <span class="glyphicon glyphicon-bookmark text-primary"></span> 
+                                Cours                                                
+                            </strong>
+                        </td>
+                        <td class="text-primary">
+				{{student.cours_in}}
+                        </td>
+                    </tr>
+
+
+                    <tr>        
+                        <td>
+                            <strong class="info-title">
+                                <span class="glyphicon glyphicon-eye-open text-primary"></span> 
+                                Niveau                                                
+                            </strong>
+                        </td>
+                        <td class="text-primary">
+                            {{student.niveau}}
+                        </td>
+                    </tr>
+
+                    <tr>        
+                        <td>
+                            <strong class="info-title">
+                                <span class="glyphicon glyphicon-eye-open text-primary"></span> 
+                                Address                                                
+                            </strong>
+                        </td>
+                        <td class="text-primary">
+                            {{student.address}}
+                        </td>
+                    </tr>                    
+                    <tr>        
+                        <td>
+                            <strong class="info-title">
+                                <span class="glyphicon glyphicon-eye-open text-primary"></span> 
+                                Institut d'origine                                                
+                            </strong>
+                        </td>
+                        <td class="text-primary">
+                            {{student.institute}}
+                        </td>
+                    </tr>
+
+                    <tr>        
+                        <td>
+                            <strong class="info-title">
+                                <span class="glyphicon glyphicon-envelope text-primary"></span> 
+                                Telephone                                                
+                            </strong>
+                        </td>
+                        <td class="text-primary">
+                            0{{student.telephone}}
+                        </td>
+                    </tr>
+                    <tr>        
+                        <td>
+                            <strong class="info-title">
+                                <span class="glyphicon glyphicon-calendar text-primary"></span>
+                                Date D'Inscription                                                
+                            </strong>
+                        </td>
+                        <td class="text-primary">
+                            {{student.sub_date|date:"d-m-Y"}}
+                        </td>
+                    </tr>
+                    <tr>        
+                        <td>
+                            <strong class="info-title">
+                                <span class="glyphicon glyphicon-calendar text-primary"></span>
+                                Expiration                                               
+                            </strong>
+                        </td>
+                        <td class="text-primary">
+                             {{student.cours_start|date:"d-m-Y"}}
+                        </td>
+                    </tr>
+		    <tr>
+			    <td>
+				    <strong class="info-title">
+					    <span class="glyphicon glyphicon-calendar text-primary"></span>
+				    		Presence
+				    </strong>
+			    </td>
+			    <td class="text-primary">
+				    {%for r in student.format_p%}
+				    	{{r}}<br>
+				    {%endfor%}
+			    </td>
+		    </tr>
+                </tbody>
+            </table>
+            </div>
+        </div>
+    </div>
+</div>
+</div>                                        
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+	
+</script>
+
+</div></div>
+{% endblock %}

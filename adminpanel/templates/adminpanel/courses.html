@@ -1,0 +1,57 @@
+{% extends 'adminpanel/base.html' %}
+{% block content %}
+	
+<div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-table mr-1"></i>
+                                Cours list <a href="{% url 'new-course' %}" class="btn btn-outline-success p-0 px-2 m-0">Créer un nouveau</a>
+                            </div>
+                            
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-sm" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <th>Titre</th>
+                                                <th>Niveau</th>
+                                                <th>Temps</th>
+                                                <th>Jour</th>
+                                                <th>1er Cours</th>
+                                                <th>Salle</th>
+                                                <th>Edit</th>
+                                            </tr>
+                                        </thead>
+                                        <tfoot>
+                                            <tr>
+                                                <th>Titre</th>
+                                                <th>Niveau</th>
+                                                <th>Temps</th>
+                                                <th>Jour</th>
+                                                <th>1er Cours</th>
+                                                <th>Salle</th>
+                                                <th>Edit</th>
+                                            </tr>
+                                        </tfoot>
+                                        <tbody>
+					{% for  tch in Course %}
+                                        <tr role="row" class="odd">
+                                                <td><a href="{% url 'cours-detail' tch.id%}" class="tb-names">{{tch.name}}</a></td>
+                                                <td>{{tch.niveau}}</td>
+                                                <td>{{tch.time|date:"H:i"}}</td>
+                                                <td>{{tch.wday1}}</td>
+                                                <td>{{tch.cours_start|date:"d-m-Y"}}</td>
+                                                <td>{{tch.sal.name}}</td>
+						{% if user.is_authenticated %}
+						<td>
+							<a href="{% url 'delete-course' tch.id %}" class="btn btn-outline-danger p-0 px-2">Supp</a>
+							<a href="{% url 'update-course' tch.id %}" class="btn btn-outline-info p-0 px-2">Edit</a>
+						</td>
+						{% endif %}
+                                            </tr>
+					{%endfor%}
+                                            </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'adminpanel/base.html'%}
+{% block content %}
+
+
+
+<div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-table mr-1"></i>
+                                List de tous les etudients  <a href="{% url 'new-student' %}" class="btn btn-outline-success p-0 px-2">Nouveau profil étudiant </a>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-sm" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr>
+						<th>ID</th>
+                                                <th>Name</th>
+                                                <th>Niveau</th>
+                                                <th>Telephone</th>
+                                                <th>Expiration</th>
+                                                <th>Tmp</th>
+                                                <th>Cours </th>
+                                                <th>edits</th>
+                                            </tr>
+                                        </thead>
+                                        
+                                        <tbody>
+					{% for  stdn in Student %}
+                                        <tr role="row" class="odd">
+						<td>{{stdn.id}}</td>
+						<td><a href="{% url 'detail-student' stdn.id%}" class="tb-names">{{stdn.first_name}} {{stdn.last_name}}</a></td>
+                                                <td>{{stdn.niveau}}</td>
+                                                <td>0{{stdn.telephone}}</td>
+                                                <td>{{stdn.cours_start|date:"d-m-Y"}}</td>
+						{% if stdn.period > 3 %}
+                                                <td>{{stdn.period}}</td>
+                                                {% else %}
+                                                <td class="text-danger">{{stdn.period}}</td>
+                                                {% endif %}
+                                                <td><a href="{% url 'cours-detail' stdn.cours_in.id%}" class="tb-names">{{stdn.cours_in.name}}</a></td>
+						{% if user.is_authenticated %}
+                        <td><a href="{% url 'delete-student' stdn.id %}" class="max-auto btn btn-outline-danger p-0 px-2">Supp</a>
+                            <a href="{% url 'update-student' stdn.id %}" class="max-auto btn btn-outline-info p-0 px-2">edit</a></td>
+						{% endif %}
+                                            </tr>
+					{%endfor%}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+{% endblock %}

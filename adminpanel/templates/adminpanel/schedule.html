@@ -1,0 +1,412 @@
+{% extends 'adminpanel/base.html' %}
+{% block content %}
+
+
+<div class=""><table class="table table-striped table-dark table-sm mt-5">
+<thead class="text-center">
+<th style="width: 6.66%"></th>
+<th style="width: 16.66%">08:00 - 10:00</th>
+<th style="width: 16.66%">10:00 - 12:00</th>
+<th style="width: 16.66%">14:00 - 16:00</th>
+<th style="width: 16.66%">16:00 - 18:00</th>
+
+
+</thead>
+<tbody>
+    <tr>
+      <th class="text-center mx-auto nav-link active" scope="row" style="height: 56.66px">Dimanche</th>
+	
+        <td class="p-0 text-center">
+        {% for c in Course %}
+        {% if c.wday1 == 'Dimanche'%}
+        	{% if c.time|date:'H:i' == '08:00'%}
+        		<a href="{% url 'cours-detail' c.id %} " class="emploi-ref" data-toggle="tooltip" data-placement="left"  title="{{c.niveau}} | {{c.prof}} | {{c.sal.name}}" data-html="true" rel="tooltip" >{{c.name}} <br> </a>
+        	{% endif %}
+        {% elif c.wday2 == 'Dimanche' %}
+        	{% if c.time2|date:'H:i' == '08:00'%}
+        		<a href="{% url 'cours-detail' c.id %} " class="emploi-ref" data-toggle="tooltip" data-placement="left"  title="{{c.niveau}} | {{c.prof}} | {{c.sal.name}}" data-html="true" rel="tooltip" >{{c.name}} <br> </a>
+        	{% endif %}
+        {%endif%}
+        {%endfor%}
+      	</td>
+      	<td class="p-0 text-center">
+        {% for c in Course %}
+        {% if c.wday1 == 'Dimanche'%}
+        	{% if c.time|date:'H:i' == '10:00'%}
+        		<a href="{% url 'cours-detail' c.id %} " class="emploi-ref" data-toggle="tooltip" data-placement="left"  title="{{c.niveau}} | {{c.prof}} | {{c.sal.name}}" data-html="true" rel="tooltip" >{{c.name}} <br> </a>
+        	{% endif %}
+        {% elif c.wday2 == 'Dimanche' %}
+        	{% if c.time2|date:'H:i' == '10:00'%}
+        		<a href="{% url 'cours-detail' c.id %} " class="emploi-ref" data-toggle="tooltip" data-placement="left"  title="{{c.niveau}} | {{c.prof}} | {{c.sal.name}}" data-html="true" rel="tooltip" >{{c.name}} <br> </a>
+        	{% endif %}
+        {%endif%}
+        {%endfor%}
+      	</td>
+      	<td class="p-0 text-center">
+        {% for c in Course %}
+        {% if c.wday1 == 'Dimanche'%}
+        	{% if c.time|date:'H:i' == '14:00'%}
+        		<a href="{% url 'cours-detail' c.id %} " class="emploi-ref" data-toggle="tooltip" data-placement="left"  title="{{c.niveau}} | {{c.prof}} | {{c.sal.name}}" data-html="true" rel="tooltip" >{{c.name}} <br> </a>
+        	{% endif %}
+        {% elif c.wday2 == 'Dimanche' %}
+        	{% if c.time2|date:'H:i' == '14:00'%}
+        		<a href="{% url 'cours-detail' c.id %} " class="emploi-ref" data-toggle="tooltip" data-placement="left"  title="{{c.niveau}} | {{c.prof}} | {{c.sal.name}}" data-html="true" rel="tooltip" >{{c.name}} <br> </a>
+        	{% endif %}
+        {%endif%}
+        {%endfor%}
+      	</td>
+      	<td class="p-0 text-center">
+        {% for c in Course %}
+        {% if c.wday1 == 'Dimanche'%}
+        	{% if c.time|date:'H:i' == '16:00'%}
+        		<a href="{% url 'cours-detail' c.id %} " class="emploi-ref" data-toggle="tooltip" data-placement="left"  title="{{c.niveau}} | {{c.prof}} | {{c.sal.name}}" data-html="true" rel="tooltip" >{{c.name}} <br> </a>
+        	{% endif %}
+        {% elif c.wday2 == 'Dimanche' %}
+        	{% if c.time2|date:'H:i' == '16:00'%}
+        		<a href="{% url 'cours-detail' c.id %} " class="emploi-ref" data-toggle="tooltip" data-placement="left"  title="{{c.niveau}} | {{c.prof}} | {{c.sal.name}}" data-html="true" rel="tooltip" >{{c.name}} <br> </a>
+        	{% endif %}
+        {%endif%}
+        {%endfor%}
+      	</td>
+    </tr>
+    <tr>
+      <th class="text-center mx-auto nav-link active" scope="row" style="height: 56.66px">Lundi</th>
+	
+        <td class="p-0 text-center">
+        {% for c in Course %}
+        {% if c.wday1 == 'Lundi'%}
+        	{% if c.time|date:'H:i' == '08:00'%}
+        		<a href="{% url 'cours-detail' c.id %} " class="emploi-ref" data-toggle="tooltip" data-placement="left"  title="{{c.niveau}} | {{c.prof}} | {{c.sal.name}}" data-html="true" rel="tooltip" >{{c.name}} <br> </a>
+        	{% endif %}
+        {% elif c.wday2 == 'Lundi' %}
+        	{% if c.time2|date:'H:i' == '08:00'%}
+        		<a href="{% url 'cours-detail' c.id %} " class="emploi-ref" data-toggle="tooltip" data-placement="left"  title="{{c.niveau}} | {{c.prof}} | {{c.sal.name}}" data-html="true" rel="tooltip" >{{c.name}} <br> </a>
+        	{% endif %}
+        {%endif%}
+        {%endfor%}
+      	</td>
+      	<td class="p-0 text-center">
+        {% for c in Course %}
+        {% if c.wday1 == 'Lundi'%}
+        	{% if c.time|date:'H:i' == '10:00'%}
+        		<a href="{% url 'cours-detail' c.id %} " class="emploi-ref" data-toggle="tooltip" data-placement="left"  title="{{c.niveau}} | {{c.prof}} | {{c.sal.name}}" data-html="true" rel="tooltip" >{{c.name}} <br> </a>
+        	{% endif %}
+        {% elif c.wday2 == 'Lundi' %}
+        	{% if c.time2|date:'H:i' == '10:00'%}
+        		<a href="{% url 'cours-detail' c.id %} " class="emploi-ref" data-toggle="tooltip" data-placement="left"  title="{{c.niveau}} | {{c.prof}} | {{c.sal.name}}" data-html="true" rel="tooltip" >{{c.name}} <br> </a>
+        	{% endif %}
+        {%endif%}
+        {%endfor%}
+      	</td>
+      	<td class="p-0 text-center">
+        {% for c in Course %}
+        {% if c.wday1 == 'Lundi'%}
+        	{% if c.time|date:'H:i' == '14:00'%}
+        		<a href="{% url 'cours-detail' c.id %} " class="emploi-ref" data-toggle="tooltip" data-placement="left"  title="{{c.niveau}} | {{c.prof}} | {{c.sal.name}}" data-html="true" rel="tooltip" >{{c.name}} <br> </a>
+        	{% endif %}
+        {% elif c.wday2 == 'Lundi' %}
+        	{% if c.time2|date:'H:i' == '14:00'%}
+        		<a href="{% url 'cours-detail' c.id %} " class="emploi-ref" data-toggle="tooltip" data-placement="left"  title="{{c.niveau}} | {{c.prof}} | {{c.sal.name}}" data-html="true" rel="tooltip" >{{c.name}} <br> </a>
+        	{% endif %}
+        {%endif%}
+        {%endfor%}
+      	</td>
+      	<td class="p-0 text-center">
+        {% for c in Course %}
+        {% if c.wday1 == 'Lundi'%}
+        	{% if c.time|date:'H:i' == '16:00'%}
+        		<a href="{% url 'cours-detail' c.id %} " class="emploi-ref" data-toggle="tooltip" data-placement="left"  title="{{c.niveau}} | {{c.prof}} | {{c.sal.name}}" data-html="true" rel="tooltip" >{{c.name}} <br> </a>
+        	{% endif %}
+        {% elif c.wday2 == 'Lundi' %}
+        	{% if c.time2|date:'H:i' == '16:00'%}
+        		<a href="{% url 'cours-detail' c.id %} " class="emploi-ref" data-toggle="tooltip" data-placement="left"  title="{{c.niveau}} | {{c.prof}} | {{c.sal.name}}" data-html="true" rel="tooltip" >{{c.name}} <br> </a>
+        	{% endif %}
+        {%endif%}
+        {%endfor%}
+      	</td>
+    </tr>
+    <tr>
+      <th class="text-center mx-auto nav-link active" scope="row" style="height: 56.66px">Mardi</th>
+	
+        <td class="p-0 text-center">
+        {% for c in Course %}
+        {% if c.wday1 == 'Mardi'%}
+        	{% if c.time|date:'H:i' == '08:00'%}
+        		<a href="{% url 'cours-detail' c.id %} " class="emploi-ref" data-toggle="tooltip" data-placement="left"  title="{{c.niveau}} | {{c.prof}} | {{c.sal.name}}" data-html="true" rel="tooltip" >{{c.name}} <br> </a>
+        	{% endif %}
+        {% elif c.wday2 == 'Mardi' %}
+        	{% if c.time2|date:'H:i' == '08:00'%}
+        		<a href="{% url 'cours-detail' c.id %} " class="emploi-ref" data-toggle="tooltip" data-placement="left"  title="{{c.niveau}} | {{c.prof}} | {{c.sal.name}}" data-html="true" rel="tooltip" >{{c.name}} <br> </a>
+        	{% endif %}
+        {%endif%}
+        {%endfor%}
+      	</td>
+      	<td class="p-0 text-center">
+        {% for c in Course %}
+        {% if c.wday1 == 'Mardi'%}
+        	{% if c.time|date:'H:i' == '10:00'%}
+        		<a href="{% url 'cours-detail' c.id %} " class="emploi-ref" data-toggle="tooltip" data-placement="left"  title="{{c.niveau}} | {{c.prof}} | {{c.sal.name}}" data-html="true" rel="tooltip" >{{c.name}} <br> </a>
+        	{% endif %}
+        {% elif c.wday2 == 'Mardi' %}
+        	{% if c.time2|date:'H:i' == '10:00'%}
+        		<a href="{% url 'cours-detail' c.id %} " class="emploi-ref" data-toggle="tooltip" data-placement="left"  title="{{c.niveau}} | {{c.prof}} | {{c.sal.name}}" data-html="true" rel="tooltip" >{{c.name}} <br> </a>
+        	{% endif %}
+        {%endif%}
+        {%endfor%}
+      	</td>
+      	<td class="p-0 text-center">
+        {% for c in Course %}
+        {% if c.wday1 == 'Mardi'%}
+        	{% if c.time|date:'H:i' == '14:00'%}
+        		<a href="{% url 'cours-detail' c.id %} " class="emploi-ref" data-toggle="tooltip" data-placement="left"  title="{{c.niveau}} | {{c.prof}} | {{c.sal.name}}" data-html="true" rel="tooltip" >{{c.name}} <br> </a>
+        	{% endif %}
+        {% elif c.wday2 == 'Mardi' %}
+        	{% if c.time2|date:'H:i' == '14:00'%}
+        		<a href="{% url 'cours-detail' c.id %} " class="emploi-ref" data-toggle="tooltip" data-placement="left"  title="{{c.niveau}} | {{c.prof}} | {{c.sal.name}}" data-html="true" rel="tooltip" >{{c.name}} <br> </a>
+        	{% endif %}
+        {%endif%}
+        {%endfor%}
+      	</td>
+      	<td class="p-0 text-center">
+        {% for c in Course %}
+        {% if c.wday1 == 'Mardi'%}
+        	{% if c.time|date:'H:i' == '16:00'%}
+        		<a href="{% url 'cours-detail' c.id %} " class="emploi-ref" data-toggle="tooltip" data-placement="left"  title="{{c.niveau}} | {{c.prof}} | {{c.sal.name}}" data-html="true" rel="tooltip" >{{c.name}} <br> </a>
+        	{% endif %}
+        {% elif c.wday2 == 'Mardi' %}
+        	{% if c.time2|date:'H:i' == '16:00'%}
+        		<a href="{% url 'cours-detail' c.id %} " class="emploi-ref" data-toggle="tooltip" data-placement="left"  title="{{c.niveau}} | {{c.prof}} | {{c.sal.name}}" data-html="true" rel="tooltip" >{{c.name}} <br> </a>
+        	{% endif %}
+        {%endif%}
+        {%endfor%}
+      	</td>
+    </tr>
+<tr>
+  <th class="text-center mx-auto nav-link active" scope="row" style="height: 56.66px">Mercredi</th>
+	
+        <td class="p-0 text-center">
+        {% for c in Course %}
+        {% if c.wday1 == 'Mercredi'%}
+        	{% if c.time|date:'H:i' == '08:00'%}
+        		<a href="{% url 'cours-detail' c.id %} " class="emploi-ref" data-toggle="tooltip" data-placement="left"  title="{{c.niveau}} | {{c.prof}} | {{c.sal.name}}" data-html="true" rel="tooltip" >{{c.name}} <br> </a>
+        	{% endif %}
+        {% elif c.wday2 == 'Mercredi' %}
+        	{% if c.time2|date:'H:i' == '08:00'%}
+        		<a href="{% url 'cours-detail' c.id %} " class="emploi-ref" data-toggle="tooltip" data-placement="left"  title="{{c.niveau}} | {{c.prof}} | {{c.sal.name}}" data-html="true" rel="tooltip" >{{c.name}} <br> </a>
+        	{% endif %}
+        {%endif%}
+        {%endfor%}
+      	</td>
+      	<td class="p-0 text-center">
+        {% for c in Course %}
+        {% if c.wday1 == 'Mercredi'%}
+        	{% if c.time|date:'H:i' == '10:00'%}
+        		<a href="{% url 'cours-detail' c.id %} " class="emploi-ref" data-toggle="tooltip" data-placement="left"  title="{{c.niveau}} | {{c.prof}} | {{c.sal.name}}" data-html="true" rel="tooltip" >{{c.name}} <br> </a>
+        	{% endif %}
+        {% elif c.wday2 == 'Mercredi' %}
+        	{% if c.time2|date:'H:i' == '10:00'%}
+        		<a href="{% url 'cours-detail' c.id %} " class="emploi-ref" data-toggle="tooltip" data-placement="left"  title="{{c.niveau}} | {{c.prof}} | {{c.sal.name}}" data-html="true" rel="tooltip" >{{c.name}} <br> </a>
+        	{% endif %}
+        {%endif%}
+        {%endfor%}
+      	</td>
+      	<td class="p-0 text-center">
+        {% for c in Course %}
+        {% if c.wday1 == 'Mercredi'%}
+        	{% if c.time|date:'H:i' == '14:00'%}
+        		<a href="{% url 'cours-detail' c.id %} " class="emploi-ref" data-toggle="tooltip" data-placement="left"  title="{{c.niveau}} | {{c.prof}} | {{c.sal.name}}" data-html="true" rel="tooltip" >{{c.name}} <br> </a>
+        	{% endif %}
+        {% elif c.wday2 == 'Mercredi' %}
+        	{% if c.time2|date:'H:i' == '14:00'%}
+        		<a href="{% url 'cours-detail' c.id %} " class="emploi-ref" data-toggle="tooltip" data-placement="left"  title="{{c.niveau}} | {{c.prof}} | {{c.sal.name}}" data-html="true" rel="tooltip" >{{c.name}} <br> </a>
+        	{% endif %}
+        {%endif%}
+        {%endfor%}
+      	</td>
+      	<td class="p-0 text-center">
+        {% for c in Course %}
+        {% if c.wday1 == 'Mercredi'%}
+        	{% if c.time|date:'H:i' == '16:00'%}
+        		<a href="{% url 'cours-detail' c.id %} " class="emploi-ref" data-toggle="tooltip" data-placement="left"  title="{{c.niveau}} | {{c.prof}} | {{c.sal.name}}" data-html="true" rel="tooltip" >{{c.name}} <br> </a>
+        	{% endif %}
+        {% elif c.wday2 == 'Mercredi' %}
+        	{% if c.time2|date:'H:i' == '16:00'%}
+        		<a href="{% url 'cours-detail' c.id %} " class="emploi-ref" data-toggle="tooltip" data-placement="left"  title="{{c.niveau}} | {{c.prof}} | {{c.sal.name}}" data-html="true" rel="tooltip" >{{c.name}} <br> </a>
+        	{% endif %}
+        {%endif%}
+        {%endfor%}
+      	</td>
+</tr>
+<tr>
+  <th class="text-center mx-auto nav-link active" scope="row" style="height: 56.66px">Jeudi</th>
+	
+        <td class="p-0 text-center">
+        {% for c in Course %}
+        {% if c.wday1 == 'Jeudi'%}
+        	{% if c.time|date:'H:i' == '08:00'%}
+        		<a href="{% url 'cours-detail' c.id %} " class="emploi-ref" data-toggle="tooltip" data-placement="left"  title="{{c.niveau}} | {{c.prof}} | {{c.sal.name}}" data-html="true" rel="tooltip" >{{c.name}} <br> </a>
+        	{% endif %}
+        {% elif c.wday2 == 'Jeudi' %}
+        	{% if c.time2|date:'H:i' == '08:00'%}
+        		<a href="{% url 'cours-detail' c.id %} " class="emploi-ref" data-toggle="tooltip" data-placement="left"  title="{{c.niveau}} | {{c.prof}} | {{c.sal.name}}" data-html="true" rel="tooltip" >{{c.name}} <br> </a>
+        	{% endif %}
+        {%endif%}
+        {%endfor%}
+      	</td>
+      	<td class="p-0 text-center">
+        {% for c in Course %}
+        {% if c.wday1 == 'Jeudi'%}
+        	{% if c.time|date:'H:i' == '10:00'%}
+        		<a href="{% url 'cours-detail' c.id %} " class="emploi-ref" data-toggle="tooltip" data-placement="left"  title="{{c.niveau}} | {{c.prof}} | {{c.sal.name}}" data-html="true" rel="tooltip" >{{c.name}} <br> </a>
+        	{% endif %}
+        {% elif c.wday2 == 'Jeudi' %}
+        	{% if c.time2|date:'H:i' == '10:00'%}
+        		<a href="{% url 'cours-detail' c.id %} " class="emploi-ref" data-toggle="tooltip" data-placement="left"  title="{{c.niveau}} | {{c.prof}} | {{c.sal.name}}" data-html="true" rel="tooltip" >{{c.name}} <br> </a>
+        	{% endif %}
+        {%endif%}
+        {%endfor%}
+      	</td>
+      	<td class="p-0 text-center">
+        {% for c in Course %}
+        {% if c.wday1 == 'Jeudi'%}
+        	{% if c.time|date:'H:i' == '14:00'%}
+        		<a href="{% url 'cours-detail' c.id %} " class="emploi-ref" data-toggle="tooltip" data-placement="left"  title="{{c.niveau}} | {{c.prof}} | {{c.sal.name}}" data-html="true" rel="tooltip" >{{c.name}} <br> </a>
+        	{% endif %}
+        {% elif c.wday2 == 'Jeudi' %}
+        	{% if c.time2|date:'H:i' == '14:00'%}
+        		<a href="{% url 'cours-detail' c.id %} " class="emploi-ref" data-toggle="tooltip" data-placement="left"  title="{{c.niveau}} | {{c.prof}} | {{c.sal.name}}" data-html="true" rel="tooltip" >{{c.name}} <br> </a>
+        	{% endif %}
+        {%endif%}
+        {%endfor%}
+      	</td>
+      	<td class="p-0 text-center">
+        {% for c in Course %}
+        {% if c.wday1 == 'Jeudi'%}
+        	{% if c.time|date:'H:i' == '16:00'%}
+        		<a href="{% url 'cours-detail' c.id %} " class="emploi-ref" data-toggle="tooltip" data-placement="left"  title="{{c.niveau}} | {{c.prof}} | {{c.sal.name}}" data-html="true" rel="tooltip" >{{c.name}} <br> </a>
+        	{% endif %}
+        {% elif c.wday2 == 'Jeudi' %}
+        	{% if c.time2|date:'H:i' == '16:00'%}
+        		<a href="{% url 'cours-detail' c.id %} " class="emploi-ref" data-toggle="tooltip" data-placement="left"  title="{{c.niveau}} | {{c.prof}} | {{c.sal.name}}" data-html="true" rel="tooltip" >{{c.name}} <br> </a>
+        	{% endif %}
+        {%endif%}
+        {%endfor%}
+      	</td>
+</tr>
+<tr>
+  <th class="text-center mx-auto nav-link active" scope="row" style="height: 56.66px">Vendredi</th>
+
+        <td class="p-0 text-center">
+        {% for c in Course %}
+        {% if c.wday1 == 'Vendredi'%}
+        	{% if c.time|date:'H:i' == '08:00'%}
+        		<a href="{% url 'cours-detail' c.id %} " class="emploi-ref" data-toggle="tooltip" data-placement="left"  title="{{c.niveau}} | {{c.prof}} | {{c.sal.name}}" data-html="true" rel="tooltip" >{{c.name}} <br> </a>
+        	{% endif %}
+        {% elif c.wday2 == 'Vendredi' %}
+        	{% if c.time2|date:'H:i' == '08:00'%}
+        		<a href="{% url 'cours-detail' c.id %} " class="emploi-ref" data-toggle="tooltip" data-placement="left"  title="{{c.niveau}} | {{c.prof}} | {{c.sal.name}}" data-html="true" rel="tooltip" >{{c.name}} <br> </a>
+        	{% endif %}
+        {%endif%}
+        {%endfor%}
+      	</td>
+      	<td class="p-0 text-center">
+        {% for c in Course %}
+        {% if c.wday1 == 'Vendredi'%}
+        	{% if c.time|date:'H:i' == '10:00'%}
+        		<a href="{% url 'cours-detail' c.id %} " class="emploi-ref" data-toggle="tooltip" data-placement="left"  title="{{c.niveau}} | {{c.prof}} | {{c.sal.name}}" data-html="true" rel="tooltip" >{{c.name}} <br> </a>
+        	{% endif %}
+        {% elif c.wday2 == 'Vendredi' %}
+        	{% if c.time2|date:'H:i' == '10:00'%}
+        		<a href="{% url 'cours-detail' c.id %} " class="emploi-ref" data-toggle="tooltip" data-placement="left"  title="{{c.niveau}} | {{c.prof}} | {{c.sal.name}}" data-html="true" rel="tooltip" >{{c.name}} <br> </a>
+        	{% endif %}
+        {%endif%}
+        {%endfor%}
+      	</td>
+      	<td class="p-0 text-center">
+        {% for c in Course %}
+        {% if c.wday1 == 'Vendredi'%}
+        	{% if c.time|date:'H:i' == '14:00'%}
+        		<a href="{% url 'cours-detail' c.id %} " class="emploi-ref" data-toggle="tooltip" data-placement="left"  title="{{c.niveau}} | {{c.prof}} | {{c.sal.name}}" data-html="true" rel="tooltip" >{{c.name}} <br> </a>
+        	{% endif %}
+        {% elif c.wday2 == 'Vendredi' %}
+        	{% if c.time2|date:'H:i' == '14:00'%}
+        		<a href="{% url 'cours-detail' c.id %} " class="emploi-ref" data-toggle="tooltip" data-placement="left"  title="{{c.niveau}} | {{c.prof}} | {{c.sal.name}}" data-html="true" rel="tooltip" >{{c.name}} <br> </a>
+        	{% endif %}
+        {%endif%}
+        {%endfor%}
+      	</td>
+      	<td class="p-0 text-center">
+        {% for c in Course %}
+        {% if c.wday1 == 'Vendredi'%}
+        	{% if c.time|date:'H:i' == '16:00'%}
+        		<a href="{% url 'cours-detail' c.id %} " class="emploi-ref" data-toggle="tooltip" data-placement="left"  title="{{c.niveau}} | {{c.prof}} | {{c.sal.name}}" data-html="true" rel="tooltip" >{{c.name}} <br> </a>
+        	{% endif %}
+        {% elif c.wday2 == 'Vendredi' %}
+        	{% if c.time2|date:'H:i' == '16:00'%}
+        		<a href="{% url 'cours-detail' c.id %} " class="emploi-ref" data-toggle="tooltip" data-placement="left"  title="{{c.niveau}} | {{c.prof}} | {{c.sal.name}}" data-html="true" rel="tooltip" >{{c.name}} <br> </a>
+        	{% endif %}
+        {%endif%}
+        {%endfor%}
+        </td>
+</tr>
+<tr>
+  <th class="text-center mx-auto nav-link active" scope="row" style="height: 56.66px">Samedi</th>
+
+        <td class="p-0 text-center">
+        {% for c in Course %}
+        {% if c.wday1 == 'Samedi'%}
+        	{% if c.time|date:'H:i' == '08:00'%}
+        		<a href="{% url 'cours-detail' c.id %} " class="emploi-ref" data-toggle="tooltip" data-placement="left"  title="{{c.niveau}} | {{c.prof}} | {{c.sal.name}}" data-html="true" rel="tooltip"  data-toggle="tooltip" data-placement="left"  title="{{c.niveau}} | {{c.prof}} | {{c.sal.name}}" data-html="true" rel="tooltip" >{{c.name}} <br> </a>
+        	{% endif %}
+        {% elif c.wday2 == 'Samedi' %}
+        	{% if c.time2|date:'H:i' == '08:00'%}
+        		<a href="{% url 'cours-detail' c.id %} " class="emploi-ref" data-toggle="tooltip" data-placement="left"  title="{{c.niveau}} | {{c.prof}} | {{c.sal.name}}" data-html="true" rel="tooltip" >{{c.name}} <br> </a>
+        	{% endif %}
+        {%endif%}
+        {%endfor%}
+      	</td>
+      	<td class="p-0 text-center">
+        {% for c in Course %}
+        {% if c.wday1 == 'Samedi'%}
+        	{% if c.time|date:'H:i' == '10:00'%}
+        		<a href="{% url 'cours-detail' c.id %} " class="emploi-ref" data-toggle="tooltip" data-placement="left"  title="{{c.niveau}} | {{c.prof}} | {{c.sal.name}}" data-html="true" rel="tooltip" >{{c.name}} <br> </a>
+        	{% endif %}
+        {% elif c.wday2 == 'Samedi' %}
+        	{% if c.time2|date:'H:i' == '10:00'%}
+        		<a href="{% url 'cours-detail' c.id %} " class="emploi-ref" data-toggle="tooltip" data-placement="left"  title="{{c.niveau}} | {{c.prof}} | {{c.sal.name}}" data-html="true" rel="tooltip" >{{c.name}} <br> </a>
+        	{% endif %}
+        {%endif%}
+        {%endfor%}
+      	</td>
+      	<td class="p-0 text-center">
+        {% for c in Course %}
+        {% if c.wday1 == 'Samedi'%}
+        	{% if c.time|date:'H:i' == '14:00'%}
+        		<a href="{% url 'cours-detail' c.id %} " class="emploi-ref" data-toggle="tooltip" data-placement="left"  title="{{c.niveau}} | {{c.prof}} | {{c.sal.name}}" data-html="true" rel="tooltip" >{{c.name}} <br> </a>
+        	{% endif %}
+        {% elif c.wday2 == 'Samedi' %}
+        	{% if c.time2|date:'H:i' == '14:00'%}
+        		<a href="{% url 'cours-detail' c.id %} " class="emploi-ref" data-toggle="tooltip" data-placement="left"  title="{{c.niveau}} | {{c.prof}} | {{c.sal.name}}" data-html="true" rel="tooltip" >{{c.name}} <br> </a>
+        	{% endif %}
+        {%endif%}
+        {%endfor%}
+      	</td>
+      	<td class="p-0 text-center">
+        {% for c in Course %}
+        {% if c.wday1 == 'Samedi'%}
+        	{% if c.time|date:'H:i' == '16:00'%}
+        		<a href="{% url 'cours-detail' c.id %} " class="emploi-ref" data-toggle="tooltip" data-placement="left"  title="{{c.niveau}} | {{c.prof}} | {{c.sal.name}}" data-html="true" rel="tooltip" >{{c.name}} <br> </a>
+        	{% endif %}
+        {% elif c.wday2 == 'Samedi' %}
+        	{% if c.time2|date:'H:i' == '16:00'%}
+        		<a href="{% url 'cours-detail' c.id %} " class="emploi-ref" data-toggle="tooltip" data-placement="left"  title="{{c.niveau}} | {{c.prof}} | {{c.sal.name}}" data-html="true" rel="tooltip" >{{c.name}} <br> </a>
+        	{% endif %}
+        {%endif%}
+        {%endfor%}
+      	</td>
+</tr>
+
+  </tbody>
+</table>
+</div>
+{% endblock %}

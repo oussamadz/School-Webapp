@@ -1,0 +1,128 @@
+{% extends 'adminpanel/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+				<div class="row p-3">
+				<div class='col-xl-3 col-md-6'>
+	                                <div class="card bg-primary text-gold mb-2">
+                                    <div class="row">
+                                    <div class="col-sm"><div class="card-body">Etudients</div></div>
+                                    <div class="col-sm"><div class="card-body h2 m-0 pt-3 pb-0 text-white" style="font-family:Lora,serif;">{{scount}}</div></div>
+                                    </div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a class="small text-gold stretched-link" href="{% url 'students' %}">View Details</a>
+                                    </div>
+                                </div>
+				</div>
+				<div class='col-xl-3 col-md-6'>
+                                <div class="card bg-primary text-gold mb-2">
+                                    <div class="row">
+                                    <div class="col-sm"><div class="card-body">Professeurs</div></div>
+                                    <div class="col-sm"><div class="card-body h2 m-0 pt-3 pb-0 text-white" style="font-family:Lora,serif;">{{pcount}}</div></div>
+                                    </div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a class="small text-gold stretched-link" href="{% url 'teachers' %}">View Details</a>
+
+                                    </div>
+
+                                </div>
+
+				</div>
+				<div class='col-xl-3 col-md-6'>
+                                <div class="card bg-primary text-gold mb-2">
+					<div class="row">
+                                    <div class="col-sm"><div class="card-body">Cours</div></div>
+                                    <div class="col-sm"><div class="card-body h2 m-0 pt-3 pb-0 text-white" style="font-family:Lora,serif;">{{ccount}}</div></div>
+                                    </div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a class="small text-gold stretched-link" href="{% url 'courses' %}">View Details</a>
+                                    </div>
+                                </div>
+				</div>
+				<div class='col-xl-3 col-md-6'>
+                                <div class="card bg-primary text-gold mb-2">
+                                    <div class="row">
+                                    <div class="col-sm"><div class="card-body">Inscriptions</div></div>
+                                    <div class="col-sm"><div class="card-body h2 m-0 pt-3 pb-0 text-white" style="font-family:Lora,serif;">{{inscount}}</div></div>
+                                    </div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a class="small text-gold stretched-link" href="{% url 'inscriptions' %}">View Details</a>
+                                    </div>
+                                </div>
+				</div>
+			</div>
+        <div class="row ">
+        <div class="col-sm mb-2">
+            <div class="card border-secondary mb-1">
+        <figure>
+        <canvas id="pie-chart"></canvas>
+        <figcaption style="text-align: center">Etudients / niveau</figcaption>
+        </figure>
+        </div>
+        </div>
+        <div class="col-sm mb-2">
+            <div class="card border-secondary mb-1">
+        <figure>
+        <canvas id="bar-chart"></canvas>
+        <figcaption style="text-align: center">inscriptions / Mois</figcaption>
+        </figure>
+        </div>
+        </div>      
+        </div>
+	<h2> Messages non lus </h2>
+	<table class="table table-dark">
+		<thead>
+			<th scope="col">#</th>
+			<th scope="col">Titre</th>
+			<th scope="col">Auteur</th>
+			<th scope="col">Date</th>
+		</thead>
+		<tbody>
+			
+			{% for msg in cmessage %}
+			<tr>
+				<th scope="row">{{msg.id}}</th>
+				<td><a class="emploi-ref" href="{% url 'message-detail' msg.id %}">{{msg.content|truncatechars:20}}</a></td>
+				<td>{{msg.writer}}</td>
+				<td>{{msg.date|date:"j-m-Y"}}</td>
+			</tr>
+			{% endfor %}
+			
+		</tbody>
+	</table>
+
+
+
+
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+            <script>
+        var config = {
+                  type: 'doughnut',
+                  data: {
+                  datasets: [{
+                  data: {{ data|safe }},
+                  backgroundColor: ['#ff5733', '#3336ff', '#46ff33', '#ff33c1', '#DAF7A6'],
+                  label: 'Population'}],
+                  labels: {{ labels|safe }}
+                },
+                  options: {responsive: true}
+                }
+        var config2 = {
+                  type: 'bar',
+                  data: {
+                  datasets: [{
+                  data: {{ data2|safe }},
+                  backgroundColor: '#3336ff',
+                  label: 'Inscriptions'}],
+                  labels: {{ months|safe }}
+                },
+                  options: {responsive: true}
+                };
+              window.onload = function() {
+              var ctx = document.getElementById('pie-chart').getContext('2d');
+              window.myPie = new Chart(ctx, config);
+              var ctx2 = document.getElementById('bar-chart').getContext('2d');
+              window.myBar = new Chart(ctx2, config2);
+            };
+        </script>
+{% endblock %}

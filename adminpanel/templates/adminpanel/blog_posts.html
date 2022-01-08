@@ -1,0 +1,57 @@
+{% extends 'adminpanel/base.html'%}
+{% block content %}
+
+
+
+<div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-table mr-1"></i>
+                                <a href="{% url 'new-post' %}" class="btn btn-outline-success p-0 px-2">Nouveau poste </a>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-sm" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr>
+						<th>ID</th>
+                                                <th>Title</th>
+                                                <th>Category</th>
+                                                <th>Author</th>
+                                                <th>Date Posted</th>
+                                                <th>Content</th>
+                                                <th>edits</th>
+                                            </tr>
+                                        </thead>
+                                        <tfoot>
+                                            <tr>
+						<th>ID</th>
+                                                <th>Title</th>
+                                                <th>Category</th>
+                                                <th>Author</th>
+                                                <th>Date Posted</th>
+                                                <th>Content</th>
+                                                <th>edits</th>
+                                            </tr>
+                                        </tfoot>
+                                        <tbody>
+					{% for  post in posts %}
+                                        <tr role="row" class="odd">
+						                        <td>{{post.id}}</td>
+						                        <td>{{post.title|truncatechars:25}}</td>
+                                                <td>{{post.category}}</td>
+                                                <td>{{post.author}}</td>
+                                                <td>{{post.date_posted|date:"d-m-Y H:i"}}</td>
+                                                <td>{{post.content|truncatechars:10}}...</td>
+						{% if user.is_authenticated %}
+                        <td><a href="{% url 'delete-post' post.id %}" class="max-auto btn btn-outline-danger p-0 px-2">Supp</a>
+                            <a href="{% url 'update-post' post.id %}" class="max-auto btn btn-outline-info p-0 px-2">edit</a></td>
+						{% endif %}
+                                            </tr>
+					{%endfor%}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+{% endblock %}

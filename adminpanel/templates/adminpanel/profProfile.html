@@ -1,0 +1,125 @@
+{%extends 'adminpanel/base.html' %}
+{% block content %}
+
+<div class="card shadow-lg border-0 rounded-lg mt-2">
+    <div class="card-header"><h3 class="text-center font-weight-light my-4">{{professor.first_name}} {{professor.last_name}}    <a class="btn btn-danger" href="{% url 'delete-teacher' professor.id %}">Supprimer</a>
+        <a class="btn btn-primary" href="{% url 'update-teacher' professor.id %}">Edit</a></h3></div>
+
+    <div class="card-body">
+<div class="container bootstrap snippets bootdey">
+<div class="panel-body inf-content">
+    <div class="row">
+        <div class="col-md-4">
+            <img alt="" style="width:600px;" title="" class="img-circle img-thumbnail isTooltip" src="/profiles_pics/{{professor.image}}" data-original-title="Usuario"> 
+            <ul title="Ratings" class="list-inline ratings text-center">
+                <li><a href="#"><span class="glyphicon glyphicon-star"></span></a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-star"></span></a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-star"></span></a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-star"></span></a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-star"></span></a></li>
+            </ul>
+        </div>
+        <div class="col-md-6">
+            <strong>Information</strong><br>
+            <div class="table-responsive">
+            <table class="table table-user-information table-sm">
+                <tbody>
+                    <tr>        
+                        <td>
+                            <strong>
+                                <span class="glyphicon glyphicon-asterisk text-primary"></span>
+				Identification 
+                            </strong>
+                        </td>
+                        <td class="text-primary">
+                            {{professor.id}}
+                        </td>
+                    </tr>
+                    <tr>    
+                        <td>
+                            <strong>
+                                <span class="glyphicon glyphicon-user  text-primary"></span>    
+                                Prenom                                                
+                            </strong>
+                        </td>
+                        <td class="text-primary">
+                            {{professor.last_name}}
+                        </td>
+                    </tr>
+                    <tr>        
+                        <td>
+                            <strong>
+                                <span class="glyphicon glyphicon-cloud text-primary"></span>  
+                                Nom                                                
+                            </strong>
+                        </td>
+                        <td class="text-primary">
+                            {{professor.first_name}}
+                        </td>
+                    </tr>
+		    
+		    <tr>
+			    <td>
+				    <strong>
+					    <span class="glyphicon glyphicon-cloud text-primary"></span> 
+					    Telephone
+				    </strong>
+			    </td>
+			    <td class="text-primary">
+				    0{{professor.phone}}
+			    </td>
+		    </tr>
+
+
+                    <tr>        
+                        <td>
+                            <strong>
+                                <span class="glyphicon glyphicon-eye-open text-primary"></span> 
+                                Cours                                          
+                            </strong>
+                        </td>
+                        <td class="text-primary">
+				{{professor.cours_in.name}}
+                        </td>
+                    </tr>
+
+                    <tr>        
+                        <td>
+                            <strong>
+                                <span class="glyphicon glyphicon-bookmark text-primary"></span> 
+                                Premier Cours                                                
+                            </strong>
+                        </td>
+                        <td class="text-primary">
+				{{professor.cours_start|date:"d-m-Y"}}
+                        </td>
+                    </tr>
+
+
+                    <tr>        
+                        <td>
+                            <strong>
+                                <span class="glyphicon glyphicon-eye-open text-primary"></span> 
+                                Niveau                                                
+                            </strong>
+                        </td>
+                        <td class="text-primary">
+                            {{professor.cours_in.niveau}}
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+            </div>
+        </div>
+    </div>
+</div>
+</div>                                        
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+	
+</script>
+
+</div></div>
+{% endblock %}

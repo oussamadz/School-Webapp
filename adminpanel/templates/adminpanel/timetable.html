@@ -1,0 +1,27 @@
+{% load static %}
+<html>
+<head>
+<title> testing timetable
+</title>
+<link rel='stylesheet' href="{% static 'adminpanel/assets/css/timetablejs.css'%}">
+
+
+
+</head>
+<body>
+
+        <div class='timetable'></div>
+
+
+        <script src="{% static 'adminpanel/assets/js/timetable.js' %}"></script>
+        <script>
+                var timetable = new Timetable();
+                timetable.setScope(8,18);
+                timetable.addLocations(['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi']);
+                timetable.addEvent("{%for crs in courses%}{% if crs.wday1 == 'Lundi' %}{%if crs.time|date:'H:i' == '16:00'%}{{crs.name}} | {{crs.time|date:'H:i'}}{%endif%}{% endif %}{%endfor%}", 'Mardi', new Date(2015,7,17,16,00), new Date(2015,7,17,18,00));
+                var renderer = new Timetable.Renderer(timetable);
+                renderer.draw('.timetable'); // any css selector
+        </script>
+</body>
+</html>
+

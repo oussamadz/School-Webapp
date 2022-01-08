@@ -1,0 +1,59 @@
+{% extends 'school/base.html' %}
+{% load static %}
+{% block content %}
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Teacher Profile</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<!--//END ABOUT IMAGE -->
+
+<!--============================= Teachers Single =============================-->
+<div class="teachers-single">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="teachers-img_block">
+                    <img src="{{teacher.image.url}}" class="img-fluid" alt="#">
+                    <div class="teachers-title_block">
+                        <h4><strong>{{teacher.first_name}}  {{ teacher.last_name }}</strong></h4>
+                        <h5 class="p-3"><a href="{% url 'cours-details' teacher.cours_in.id %}">{{teacher.cours_in.name}}</a></h5>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="teacher-profile_block qualification_detaile">
+                            <h4>Professional Profile</h4>
+                            <ul>
+                                {% for exp in experience %}
+                                <li><span>*</span>{{exp}}.</li>
+                                {% endfor %}
+                            </ul>
+
+                        <!-- <h3>Luise, Dennison, DDS, MS, phD </h3>
+                        <span>Syllabus : Economics, Marketing & Finance</span>
+                        <p>There are many variations of passages of Lorem Ipsum available</p> -->
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+</div>
+</div>
+</div>
+</div>
+<!--//End Teachers Single -->
+
+{% endblock %}

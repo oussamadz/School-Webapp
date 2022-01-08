@@ -1,0 +1,41 @@
+{% extends 'adminpanel/base.html' %}
+{% block content %}
+	
+        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-table mr-1"></i>
+                                DataTable Example <a href="{% url 'new-teacher' %}" class="btn btn-outline-success p-0 px-2 m-0 ml-2">Nouveau profil d'enseignant </a>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+        <table class="table table-bordered table-sm" id="dataTable"width="100%"cellspacing="0">
+	  <thead>
+		<tr>
+		<th>ID</th>
+		<th>Nom et Prenom</th>
+		<th>Telephone</th>
+		<th>1er Cours</th>
+		<th>Module</th>
+		<th>Edits</th>
+		</tr>
+		</thead>
+	<tbody>
+					{% for  tch in Teacher %}
+                                        <tr role="row" class="odd">
+                                                <td>{{tch.id}}</td>
+						<td>{{tch.last_name}} {{tch.first_name}}</td>
+                                                <td>{{tch.phone}}</td>
+						<td> {{tch.cours_start|date:"d-m-Y"}} </td>
+						<td>{{tch.cours_in.name}}</td>
+						{% if user.is_authenticated %}
+		<td><a href="{% url 'delete-teacher' tch.id %}" class="max-auto btn btn-outline-danger p-0 px-2">Supp</a>
+			<a href="{% url 'update-teacher' tch.id %}" class="max-auto btn btn-outline-info p-0 px-2">Edit</a></td>
+						{% endif %}
+                                            </tr>
+					{%endfor%}
+                                            </tbody>
+                                    </table>
+                                                                    </div>
+                            </div>
+                        </div>
+{% endblock %}
